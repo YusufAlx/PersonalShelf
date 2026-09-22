@@ -15,7 +15,7 @@ import kotlinx.coroutines.tasks.await
 
 private val Context.shelfStore by preferencesDataStore("personal_shelf")
 
-/** Local copy is always available; Firebase is the cloud source of truth once configured. */
+/* Local copy is always available; Firebase is the cloud source of truth once configured. */
 class ShelfRepository(private val context: Context) {
     private object Keys {
         val count = intPreferencesKey("count")
@@ -53,7 +53,7 @@ class ShelfRepository(private val context: Context) {
 
     suspend fun localItems(): List<ShelfItem> = items.first()
 
-    /** Synchronises local changes to Firestore. No passwords are ever stored by this app. */
+    /* Synchronises local changes to Firestore. No passwords are ever stored by this app. */
     suspend fun syncToCloud(items: List<ShelfItem>): Result<Unit> = runCatching {
         val user = FirebaseAuth.getInstance().currentUser ?: return@runCatching
         val db = FirebaseFirestore.getInstance()

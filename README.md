@@ -5,7 +5,6 @@ Personal Shelf is a Kotlin and Jetpack Compose Android Studio application for a 
 ## What is included
 
 |Feature list
-|---|---|
 | Register, log in and encrypted passwords | Firebase Authentication email/password functions. Firebase handles password hashing; the app never stores passwords. |
 | Single sign-on | Firebase Authentication has a dedicated Google SSO setup point; enable its provider as described below. |
 | User settings | English/Afrikaans language toggle and sign-out settings. |

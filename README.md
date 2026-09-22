@@ -4,7 +4,7 @@ Personal Shelf is a Kotlin and Jetpack Compose Android Studio application for a 
 
 ## What is included
 
-| Assessment criterion | Implementation |
+|Feature list
 |---|---|
 | Register, log in and encrypted passwords | Firebase Authentication email/password functions. Firebase handles password hashing; the app never stores passwords. |
 | Single sign-on | Firebase Authentication has a dedicated Google SSO setup point; enable its provider as described below. |
@@ -20,45 +20,4 @@ Personal Shelf is a Kotlin and Jetpack Compose Android Studio application for a 
 2. Let Android Studio download the Gradle dependencies and sync.
 3. Run on an Android 8.0+ emulator or device. **Explore offline demo** allows the complete local shelf workflow before cloud setup.
 
-## Connect Firebase
 
-1. Create a Firebase project, add Android app package `za.ac.personalshelf`, and put the downloaded `google-services.json` in `app/`.
-2. Enable **Email/Password** and **Google** in Firebase Authentication. Configure the Google OAuth SHA-1 fingerprints from Android Studio for SSO. The Google Services plugin generates the required Web client ID from `google-services.json` automatically.
-3. Create a Cloud Firestore database and Cloud Storage bucket. Deploy the example security rules below.
-4. Enable Firebase Cloud Messaging. The included service receives messages sent to the device token.
-
-When Firebase is enabled, add the Google Services plugin in the root and application Gradle files according to Firebase’s current Android setup guide. This is intentionally left out of source control because the configuration file belongs to your own Firebase project.
-
-## Firestore security rules
-
-```text
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-      match /library/{itemId} {
-        allow read, write: if request.auth != null && request.auth.uid == userId;
-      }
-    }
-  }
-}
-```
-
-## Storage security rules
-
-```text
-rules_version = '2';
-service firebase.storage {
-  match /b/{bucket}/o {
-    match /users/{userId}/{allPaths=**} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-    }
-  }
-}
-```
-
-## Suggested next incremental work
-
-- Connect the selected document URI to Firebase Storage and save the resulting file path with its Firestore metadata.
-- Add a PDF/EPUB reader screen and persist page bookmarks.

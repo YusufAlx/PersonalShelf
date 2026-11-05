@@ -22,10 +22,13 @@ https://youtu.be/tP0NGFqUOfw
 3. Run on an Android 8.0+ emulator or device. **Explore offline demo** allows the complete local shelf workflow before cloud setup.
 
 ## Image assets
+
 ### Logo
 <img width="364" height="364" alt="image" src="https://github.com/user-attachments/assets/7258d4af-c22e-4de4-a496-15259a9f01ea" />
+
 ### Login Screen
 <img width="720" height="1520" alt="signing in P SHelf" src="https://github.com/user-attachments/assets/a7674136-0892-4fa0-b73e-ecb88e142f15" />
+
 ### Uploading file
 <img width="720" height="1520" alt="categories" src="https://github.com/user-attachments/assets/d5d8af2a-23a5-4099-84d0-387dbadee096" />
 

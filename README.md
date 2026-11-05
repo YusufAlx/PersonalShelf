@@ -9,7 +9,7 @@ https://youtu.be/tP0NGFqUOfw
 |Feature list
 | Register, log in and encrypted passwords | Firebase Authentication email/password functions. Firebase handles password hashing; the app never stores passwords. |
 | Single sign-on | Firebase Authentication has a dedicated Google SSO setup point; enable its provider as described below. |
-| User settings | English/Afrikaans language toggle and sign-out settings. |
+| User settings | English/Afrikaans language toggle and sign-out settings. | Push notifications through Firebase
 | Cloud API and database | Firebase Authentication, Cloud Firestore and Cloud Storage integration points. Firestore stores each user under `users/{uid}/library/{itemId}`. |
 | Offline mode and synchronisation | The local DataStore copy lets users add, edit, favourite, track progress, delete, search and filter while offline. Changes are marked pending and sent to Firestore by Sync on reconnection; WorkManager also schedules cloud sync only when Android reports connectivity. |
 | Real-time notifications | `ShelfMessagingService` receives Firebase Cloud Messaging updates and displays an Android notification. |
